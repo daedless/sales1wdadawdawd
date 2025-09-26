@@ -1,0 +1,115 @@
+/* ==== Sidebar Filter Unique Styling ==== */
+    .collection { margin-top: 30px; }
+    .shop-layout { display: grid; grid-template-columns: 250px 1fr; margin-top: 40px; padding-left: 70px; }
+    .filters { padding-right: 50px; margin-top: 27px; }
+    .filter { margin-bottom: 8px; border-bottom: 1px solid #ddd; }
+    .filter-header {
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      text-transform: uppercase;
+    }
+    .filter-header span { transition: transform 0.3s ease; }
+    .filter.active .filter-header span { transform: rotate(180deg); }
+    .filter-content { display: none; margin-top: 10px; }
+    .filter.active .filter-content { display: block; }
+    .filter-content label {
+      display: flex; align-items: center;
+      font-size: 13px; margin-bottom: 8px;
+      cursor: pointer; color: #133c55;
+    }
+    .filter-content input[type="checkbox"] {
+      appearance: none; -webkit-appearance: none;
+      width: 14px; height: 14px;
+      border: 1px solid #133c55;
+      border-radius: 2px;
+      margin-right: 8px;
+      position: relative;
+      cursor: pointer;
+    }
+    .filter-content input[type="checkbox"]:checked { background-color: #133c55; }
+
+    /* Slider styling */
+    #priceSlider {
+      -webkit-appearance: none; width: 100%; height: 5px;
+      background: linear-gradient(to right, #133c55 50%, #ddd 50%);
+      border-radius: 3px; outline: none; cursor: pointer; margin-bottom: 8px;
+    }
+    #priceSlider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 10px; height: 10px;
+      background: #133c55; border-radius: 50%;
+      cursor: pointer; margin-top: -2.5px; transition: background 0.3s ease;
+    }
+    #priceSlider::-moz-range-track { height: 5px; background: #ddd; border-radius: 3px; }
+    #priceSlider::-moz-range-progress { background-color: #133c55; height: 5px; border-radius: 3px; }
+    #priceSlider::-moz-range-thumb { width: 10px; height: 10px; background: #133c55; border-radius: 50%; cursor: pointer; border: none; }
+
+    .collection-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 15px; position: relative; top: -35px;
+    }
+    .collection-header .product-count {
+      font-size: 14px; font-weight: 600; color: #333; text-transform: uppercase;
+    }
+    .sort-btn {
+      font-size: 15px; font-weight: 500; padding: 6px 27px;
+      border: 1px solid #133c55; border-radius: 20px;
+      background: transparent; color: #133c55;
+      cursor: pointer; display: flex; align-items: center; gap: 5px;
+      margin-left: auto; margin-right: 49px; position: relative;
+    }
+
+    /* Sort & Filter dropdown animation */
+    .sort-filter-wrapper {
+      position: relative; /* reference for absolute dropdown */
+    }
+    .sort-dropdown {
+      position: absolute;
+      top: 100%;        /* directly under the button */
+      left: 40%;        /* start from the center of the button */
+      transform: translateX(-50%) scale(0.75); /* center horizontally + scale */
+      transform-origin: top center;
+      background: #fff;
+      border: 1px solid #133c55;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      min-width: 140px;
+      z-index: 10;
+      opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .sort-dropdown.show {
+      transform: translateX(-50%) scale(1); /* center + full scale when showing */
+      opacity: 1;
+    }
+    .sort-dropdown div {
+      padding: 6px 3px;
+      cursor: pointer;
+      font-size: 13px;
+      color: #133c55;
+      border-radius: 5px;
+      transition: background 0.2s;
+      text-align: left;
+    }
+    .sort-dropdown div:hover { background-color: #133c55; color: #fff; }
+
+    .collection .items {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 0.2fr));
+      gap: 20px;
+    }
+
+    /* Product details under the box */
+    .item h3 {
+      font-size: 13px;
+      font-weight: normal;
+      margin: 12px 0 6px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
